@@ -1,0 +1,43 @@
+import java.io.*;
+
+public class TextFileOperations {
+    public static void main(String[] args) {
+        String filePath = "sample.txt";
+
+        try {
+            FileWriter writer = new FileWriter(filePath);
+            writer.write("Hello, this is a sample text written to the file.");
+            writer.close();
+            System.out.println("Content written to the file successfully.");
+        } catch (IOException e) {
+            System.out.println("An error occurred while writing to the file.");
+            e.printStackTrace();
+        }
+
+        try {
+            FileReader reader = new FileReader(filePath);
+            BufferedReader bufferedReader = new BufferedReader(reader);
+
+            String line;
+            System.out.println("Content read from the file:");
+            while ((line = bufferedReader.readLine()) != null) {
+                System.out.println(line);
+            }
+
+            reader.close();
+        } catch (IOException e) {
+            System.out.println("An error occurred while reading the file.");
+            e.printStackTrace();
+        }
+
+        try {
+            FileWriter writer = new FileWriter(filePath, true);
+            writer.write("\nThis is an additional line appended to the file.");
+            writer.close();
+            System.out.println("Content appended to the file successfully.");
+        } catch (IOException e) {
+            System.out.println("An error occurred while appending to the file.");
+            e.printStackTrace();
+        }
+    }
+}
