@@ -1,0 +1,25 @@
+import java.io.*;
+
+public class FileWriteExample {
+    public static void main(String[] args) {
+       
+        String /home/odoo = "sample.txt";
+
+        // Writing content to the file
+        try {
+            // Create a FileWriter object with the file path
+            FileWriter writer = new FileWriter(home/odoo);
+
+    
+            writer.write("Hello, this is a sample text written to the file.");
+
+            
+            writer.close();
+
+            System.out.println("Content written to the file successfully.");
+        } catch (IOException e) {
+            System.out.println("An error occurred while writing to the file.");
+            e.printStackTrace();
+        }
+    }
+}
